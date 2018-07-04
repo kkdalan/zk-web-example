@@ -1,0 +1,17 @@
+<zk>
+	<?variable-resolver class="com.thonline.test.resolver.UserResolver"?>
+	<grid>
+		<columns>
+			<column label="Name" sort="auto" />
+			<column label="Title" sort="auto" />
+			<column label="Age" sort="auto" />
+		</columns>
+		<rows>
+			<row forEach="${users}">
+				<label value="${each.name}" />
+				<label value="${each.title}" />
+				<label value="${each.age}" />
+			</row>
+		</rows>
+	</grid>
+</zk>

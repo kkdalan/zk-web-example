@@ -1,0 +1,8 @@
+<zk>
+	<window title="Autowire Property Retrieval" border="normal"
+		apply="com.thonline.test.AutowirePropertyRetriever">
+		Enter a property name: <textbox id="input" />
+		<button label="Retrieve" id="retrieve" />
+		<vlayout id="result" />
+	</window>
+</zk>

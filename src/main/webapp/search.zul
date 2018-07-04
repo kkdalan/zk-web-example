@@ -1,0 +1,22 @@
+<zk>
+	<window title="Search" width="600px" border="normal" apply="com.thonline.test.controller.SearchController">
+		<hbox align="center">
+			Keyword: <textbox id="keywordBox" />
+			<button id="searchButton" label="Search" />
+		</hbox>
+		<listbox id="userListbox" emptyMessage="No user found in the result">
+		    <listhead>
+		        <listheader label="Name" />
+		        <listheader label="Title" />
+		        <listheader label="Age"/>
+		    </listhead>
+		    <template name="model">
+		        <listitem>
+		            <listcell label="${each.name}"></listcell>
+		            <listcell label="${each.title}"></listcell>
+		            <listcell label="${each.age}"></listcell>
+		        </listitem>
+		    </template>
+		</listbox>
+	</window>
+</zk>
