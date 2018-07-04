@@ -1,0 +1,24 @@
+<window title="Grid Users - MVC" width="600px" border="normal"
+    apply="com.thonline.test.controller.UserController">
+	
+	<hbox align="center">
+		Keyword: <textbox id="keywordBox" />
+		<button id="searchButton" label="Search" image="https://www.zkoss.org/zkdemo/widgets/getting_started/img/search.png" />
+		Count: <label id="countLabel" />
+	</hbox>
+	
+	<grid>
+		<columns>
+			<column label="Name" sort="auto" />
+			<column label="Title" sort="auto" />
+			<column label="Age" sort="auto" />
+		</columns>
+		<template name="model">
+			<row>
+				<textbox value="${each.name}" />
+				<textbox value="${each.title}" />
+				<intbox value="${each.age}" />
+			</row>
+		</template>
+	</grid>
+</window>

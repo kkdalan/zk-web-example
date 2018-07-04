@@ -1,7 +1,8 @@
-<zk>
-	<grid apply="org.zkoss.bind.BindComposer" 
-		viewModel="@id('vm') @init('com.thonline.test.vm.UserViewModel')"
-		model="@bind(vm.users)">
+<window title="Search Users - MVVM" width="600px" border="normal">
+	
+	<grid apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.thonline.test.vm.UserViewModel')"
+	model="@bind(vm.users)">
 		<columns>
 			<column label="Name" sort="auto" />
 			<column label="Title" sort="auto" />
@@ -15,4 +16,4 @@
 			</row>
 		</template>
 	</grid>
-</zk>
+</window>

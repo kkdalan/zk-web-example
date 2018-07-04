@@ -1,8 +1,9 @@
 <zk>
-	<window title="Search" width="600px" border="normal" apply="com.thonline.test.controller.SearchController">
+	<window title="Search Users" width="600px" border="normal" apply="com.thonline.test.controller.UserController">
 		<hbox align="center">
 			Keyword: <textbox id="keywordBox" />
 			<button id="searchButton" label="Search" />
+			Count: <label id="countLabel" />
 		</hbox>
 		<listbox id="userListbox" emptyMessage="No user found in the result">
 		    <listhead>
