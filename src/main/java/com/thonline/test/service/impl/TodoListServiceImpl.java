@@ -31,9 +31,11 @@ public class TodoListServiceImpl implements TodoListService {
 		while (iter.hasNext()) {
 			Todo t = iter.next();
 			if (t.getId().equals(id)) {
+				printTodoList();
 				return t;
 			}
 		}
+		printTodoList();
 		return null;
 	}
 
@@ -41,6 +43,7 @@ public class TodoListServiceImpl implements TodoListService {
 	public Todo saveTodo(Todo todo) {
 		todo.setId(generateNewId());
 		todoList.add(todo);
+		printTodoList();
 		return todo;
 	}
 
@@ -54,6 +57,7 @@ public class TodoListServiceImpl implements TodoListService {
 				t.setSubject(todo.getSubject());
 			}
 		}
+		printTodoList();
 		return todo;
 	}
 
@@ -66,8 +70,16 @@ public class TodoListServiceImpl implements TodoListService {
 				iter.remove();
 			}
 		}
+		printTodoList();
 	}
 
+	public void printTodoList() {
+		System.out.println(" -- Todo List -- ");
+		for(Todo todo: todoList) {
+			System.out.println(todo);
+		}
+	}
+	
 	private Integer generateNewId() {
 		int maxId = 0;
 		Iterator<Todo> iter = todoList.iterator();
@@ -80,10 +92,4 @@ public class TodoListServiceImpl implements TodoListService {
 		return ++maxId;
 	}
 	
-	private void printTodoList() {
-		System.out.println(" -- Todo List -- ");
-		for(Todo todo: todoList) {
-			System.out.println(todo);
-		}
-	}
 }
