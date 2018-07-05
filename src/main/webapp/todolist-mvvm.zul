@@ -1,0 +1,38 @@
+<window viewModel="@id('vm') @init('com.thonline.test.vm.TodoListViewModel')">
+
+	<caption label="@init(vm.title)" />
+
+	<vlayout hflex="1" vflex="1">
+		
+		<textbox value="@save(vm.subject, before='addTodo') @validator('com.thonline.test.validate.TodoListValidator')"
+				 onOK="@command('addTodo')" hflex="1" placeholder="想幹嘛?" />
+		<button onClick="@command('addTodo')" hflex="min">新增</button>
+    
+		<listbox model="@init(vm.todoListModel)" hflex="1" vflex="1">
+			<listhead>
+				<listheader hflex="min" /><!--完成勾選框 -->
+				<listheader hflex="min" /><!--Todo序號 -->
+				<listheader/><!--待辦事項主題 -->
+				<listheader hflex="min" /><!--刪除按鈕 -->
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell>
+						<!-- @bind = @load + @save -->
+						<checkbox checked="@init(each.complete) @save(each.complete)" />
+					</listcell>
+					<listcell>
+						<label value="@init(each.id)" />
+					</listcell>
+					<listcell>
+						<label value="@init(each.subject)" />
+					</listcell>
+					<listcell>
+						<button onClick="@command('deleteTodo', todo=each)">刪除</button>
+					</listcell>
+				</listitem>
+			</template>
+		</listbox>
+	</vlayout>
+
+</window>
