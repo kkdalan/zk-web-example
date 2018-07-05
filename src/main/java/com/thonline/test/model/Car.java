@@ -66,6 +66,8 @@ public class Car {
 	}
 
 	public void setModel(String model) {
+		System.out.println("(before) car.model = " + this.model);
 		this.model = model;
+		System.out.println("(after) car.model = " + this.model);
 	}
 }

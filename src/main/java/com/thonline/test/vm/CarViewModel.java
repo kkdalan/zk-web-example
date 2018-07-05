@@ -18,8 +18,17 @@ public class CarViewModel {
 
 	private CarService carService = new CarServiceImpl();
 
+	@Command
+	@NotifyChange({ "carList", "count" })
+	public void search() {
+		carList = carService.search(keyword);
+		count = carList.size();
+	}
+	
 	public void setKeyword(String keyword) {
+		System.out.println("(before) CarViewModel.keyword = " + this.keyword);
 		this.keyword = keyword;
+		System.out.println("(after) CarViewModel.keyword = " + this.keyword);
 	}
 
 	public String getKeyword() {
@@ -42,10 +51,4 @@ public class CarViewModel {
 		return selectedCar;
 	}
 
-	@Command
-	@NotifyChange({ "carList", "count" })
-	public void search() {
-		carList = carService.search(keyword);
-		count = carList.size();
-	}
 }

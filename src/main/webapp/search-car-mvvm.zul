@@ -2,7 +2,7 @@
 	viewModel="@id('vm') @init('com.thonline.test.vm.CarViewModel')">
 	
 	<hbox align="center">
-		Keyword: <textbox value="@bind(vm.keyword)" />
+		Keyword: <textbox value="@save(vm.keyword)" />
 		<button label="Search" onClick="@command('search')" image="https://www.zkoss.org/zkdemo/widgets/getting_started/img/search.png" />
 		Count: <label value="@bind(vm.count)" />
 	</hbox>
@@ -16,7 +16,7 @@
 		</listhead>
 		<template name="model">
 			<listitem>
-				<listcell label="@bind(each.model)"></listcell>
+				<listcell><textbox value="@bind(each.model)"/></listcell>
 				<listcell label="@bind(each.make)"></listcell>
 				<listcell>$<label value="@bind(each.price)" /></listcell>
 			</listitem>

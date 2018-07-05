@@ -17,11 +17,10 @@ public class AutowirePropertyRetriever extends SelectorComposer<Window> {
 	@Wire
 	Vlayout result; // wired to a component called result
 
-	@Listen("onClick=#retrieve")
+	@Listen("onClick = #retrieve")
 	public void submit(Event event) { // register a listener to a component called retrieve
 		String prop = System.getProperty(input.getValue());
 		result.appendChild(new Label(prop));
-		
 	}
 	
 }
