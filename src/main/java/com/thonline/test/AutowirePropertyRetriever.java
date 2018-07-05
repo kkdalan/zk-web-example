@@ -4,13 +4,14 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zul.Grid;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Vlayout;
 import org.zkoss.zul.Window;
 
 public class AutowirePropertyRetriever extends SelectorComposer<Window> {
+
+	private static final long serialVersionUID = 4422169399050124254L;
 
 	@Wire
 	Textbox input; // wired to a component called input

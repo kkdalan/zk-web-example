@@ -24,14 +24,32 @@ public class TodoListViewModel {
 	private String subject; 
 	private boolean complete;
 	private Todo selectedTodo;
+	private String keywords;
 	
-
 	@Init // 初始化 -> ZK 會在載入 zul 的過程自動產生你指定的 ViewModel 物件，然後就呼叫你標註 @Init 的方法
     public void init() {
         //從後端抓資料
         List<Todo> todoList = todoListService.getTodoList();
         //建議使用 ListModelList 可以優化繪製效率，避免每次都重新繪製所有資料
         todoListModel = new ListModelList<Todo>(todoList);
+    }
+	
+	@Command //@Command 用來宣告此方法為命令 (command)
+    @NotifyChange("todoListModel") //@NotifyChange 通知 ZK 更新哪些 property
+    public void search(@BindingParam("keywords") String keywords) {
+		//從後端抓資料
+        List<Todo> todoList = todoListService.getTodoListBySubject(keywords);
+        todoListModel = new ListModelList<Todo>(todoList);
+    }
+	
+	@Command //@Command 用來宣告此方法為命令 (command)
+    @NotifyChange("subject") //@NotifyChange 通知 ZK 更新哪些 property
+    public void addTodo() {
+        selectedTodo = todoListService.saveTodo(new Todo(subject));
+        //更新頁面資料，無需用 @NotifyChange 通知 ZK 我們改變了 todoListModel，它自行會通知元件繪製新增的一筆
+        todoListModel.add(selectedTodo);
+        //清空輸入，方便輸入下一個事項
+        subject = "";
     }
 	
 	@Command
@@ -47,16 +65,6 @@ public class TodoListViewModel {
 	     todoListService.deleteTodo(todo);
 	     //刪除畫面上的資料
 	     todoListModel.remove(todo);
-    }
-	
-	@Command //@Command 用來宣告此方法為命令 (command)
-    @NotifyChange("subject") //@NotifyChange 通知 ZK 更新哪些 property
-    public void addTodo() {
-        selectedTodo = todoListService.saveTodo(new Todo(subject));
-        //更新頁面資料，無需用 @NotifyChange 通知 ZK 我們改變了 todoListModel，它自行會通知元件繪製新增的一筆
-        todoListModel.add(selectedTodo);
-        //清空輸入，方便輸入下一個事項
-        subject = "";
     }
 	
 	public String getTitle() {
@@ -99,4 +107,11 @@ public class TodoListViewModel {
 		this.todoListModel = todoListModel;
 	}
 
+	public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
 }

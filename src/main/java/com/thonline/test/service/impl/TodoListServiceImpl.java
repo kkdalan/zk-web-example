@@ -26,6 +26,23 @@ public class TodoListServiceImpl implements TodoListService {
 	}
 
 	@Override
+	public List<Todo> getTodoListBySubject(String keywords) {
+		if(keywords == null) {
+			keywords = "";
+		}
+		List<Todo> findTodoList = new ArrayList<Todo>();
+		Iterator<Todo> iter = todoList.iterator();
+		while (iter.hasNext()) {
+			Todo t = iter.next();
+			if (t.getSubject().startsWith(keywords)) {
+				findTodoList.add(t);
+			}
+		}
+		System.out.println("Todo list count: " + findTodoList.size());
+		return findTodoList;
+	}
+	
+	@Override
 	public Todo getTodo(Integer id) {
 		Iterator<Todo> iter = todoList.iterator();
 		while (iter.hasNext()) {
@@ -91,5 +108,5 @@ public class TodoListServiceImpl implements TodoListService {
 		}
 		return ++maxId;
 	}
-	
+
 }

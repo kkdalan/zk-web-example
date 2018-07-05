@@ -7,9 +7,11 @@ import com.thonline.test.model.Todo;
 public interface TodoListService {
 
 	public List<Todo> getTodoList();
+	
+	public List<Todo> getTodoListBySubject(String subject);
 
 	public Todo getTodo(Integer id);
-
+	
 	public Todo saveTodo(Todo todo);
 
 	public Todo updateTodo(Todo todo);

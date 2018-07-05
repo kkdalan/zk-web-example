@@ -7,6 +7,7 @@ import org.zkoss.zk.ui.util.Composer;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
 
+@SuppressWarnings("rawtypes")
 public class PropertyRetriever implements Composer {
 	
 	public void doAfterCompose(final Component target) { // handle UI here

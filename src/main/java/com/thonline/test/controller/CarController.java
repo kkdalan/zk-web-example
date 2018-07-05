@@ -57,6 +57,7 @@ public class CarController extends SelectorComposer<Component> {
 	public void showDetail(){
 		detailBox.setVisible(true);
 		
+		@SuppressWarnings("unchecked")
 		Set<Car> selection = ((Selectable<Car>)carListbox.getModel()).getSelection();
 		if (selection!=null && !selection.isEmpty()){
 			Car selected = selection.iterator().next();

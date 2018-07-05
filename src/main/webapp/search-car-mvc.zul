@@ -7,7 +7,7 @@
 		Count: <label id="countLabel" />
 	</hbox>
 	
-	<listbox id="carListbox" emptyMessage="No car found in the result" height="160px" style="margin-top:10px">
+	<listbox id="carListbox" emptyMessage="No car found in the result" height="400px" style="margin-top:10px">
 		<listhead>
 			<listheader label="Model" />
 			<listheader label="Make" />

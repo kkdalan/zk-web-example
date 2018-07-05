@@ -33,6 +33,7 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
+	    <!-- ZK -->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkbind</artifactId>
@@ -53,7 +54,7 @@
 			<artifactId>zhtml</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>

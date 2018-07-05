@@ -1,5 +1,5 @@
 <zk>
-	<window title="Search Users" width="600px" border="normal" apply="com.thonline.test.controller.UserController">
+	<window title="Search Users - MVC" width="600px" border="normal" apply="com.thonline.test.controller.UserController">
 		<hbox align="center">
 			Keyword: <textbox id="keywordBox" />
 			<button id="searchButton" label="Search" />

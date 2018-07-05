@@ -1,14 +1,19 @@
 <window viewModel="@id('vm') @init('com.thonline.test.vm.TodoListViewModel')">
 
 	<caption label="@init(vm.title)" />
-
+		
 	<vlayout hflex="1" vflex="1">
 		
-		<textbox value="@save(vm.subject, before='addTodo') @validator('com.thonline.test.validate.TodoListValidator')"
-				 onOK="@command('addTodo')" hflex="1" placeholder="想幹嘛?" />
-		<button onClick="@command('addTodo')" hflex="min">新增</button>
+		<hlayout hflex="0" vflex="0">
+		     主題: <textbox value="@save(vm.subject, before='addTodo') @validator('com.thonline.test.validate.TodoListValidator')"
+				 onOK="@command('addTodo')" hflex="min" placeholder="寫點什麼?" />
+			<button onClick="@command('addTodo')" hflex="min">新增</button>
+			<textbox value="@bind(vm.keywords)"/>
+			<button onClick="@command('search' , keywords = vm.keywords)" hflex="min">總覽</button>
+		</hlayout>
     
-		<listbox model="@init(vm.todoListModel)" hflex="1" vflex="1">
+		<listbox model="@bind(vm.todoListModel)" hflex="1" vflex="1"
+		         onSelect="@global-command('navigate', page='todoedit-mvvm.zul')">
 			<listhead>
 				<listheader hflex="min" /><!--完成勾選框 -->
 				<listheader hflex="min" /><!--Todo序號 -->
