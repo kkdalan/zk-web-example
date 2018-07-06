@@ -8,11 +8,13 @@ import com.thonline.test.service.CarService;
 
 public class CarServiceImpl implements CarService{
 
-	private List<Car> carList= new LinkedList<Car>();
+	private static List<Car>  carList= null;
 	private int id = 1;
 
 	public CarServiceImpl() {
-		prepareCarsData();
+		if (carList == null) {
+			prepareData();
+		}
 	}
 
 	public List<Car> findAll(){
@@ -33,7 +35,8 @@ public class CarServiceImpl implements CarService{
 		return result;
 	}
 	
-	private void prepareCarsData() {
+	private void prepareData() {
+		carList= new LinkedList<Car>();
 		carList.add(
 				new Car(id++, 
 						"Primera",

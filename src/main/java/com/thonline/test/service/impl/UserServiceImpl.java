@@ -8,9 +8,16 @@ import com.thonline.test.service.UserService;
 
 public class UserServiceImpl implements UserService {
 
-	private List<User> users = new ArrayList<User>();
+	private static List<User> users = null;
 
 	public UserServiceImpl() {
+		if (users == null) {
+			prepareData();
+		}
+	}
+
+	private void prepareData() {
+		users = new ArrayList<User>();
 		users.add(new User("Alan", "Student", 20));
 		users.add(new User("Tom", "Writer", 45));
 		users.add(new User("Eric", "Doctor", 30));

@@ -9,9 +9,16 @@ import com.thonline.test.service.TodoListService;
 
 public class TodoListServiceImpl implements TodoListService {
 
-	private List<Todo> todoList = new ArrayList<Todo>();
+	private static List<Todo> todoList = null;
 
 	public TodoListServiceImpl() {
+		if(todoList == null) {
+			prepareData();
+		}
+	}
+
+	private void prepareData() {
+		todoList = new ArrayList<Todo>();
 		todoList.add(new Todo(1, "Subject 1"));
 		todoList.add(new Todo(2, "Subject 2"));
 		todoList.add(new Todo(3, "Subject 3"));
