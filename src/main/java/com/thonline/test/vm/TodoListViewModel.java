@@ -14,56 +14,40 @@ import com.thonline.test.service.impl.TodoListServiceImpl;
 
 public class TodoListViewModel {
 	
-	//À³¥Îµ{¦¡ÅÞ¿è
     private TodoListService todoListService = new TodoListServiceImpl();
 
-	//µe­±¤W©Ò»Ý­n§e²{©ÎÀx¦sªº¸ê®Æ(view state)
     private ListModelList<Todo> todoListModel;
     
-	private String title = "§Úªº«Ý¿ì²M³æ";
+	private String title = "æˆ‘çš„ä»£è¾¦æ¸…å–®";
 	private String subject; 
 	private boolean complete;
 	private Todo selectedTodo;
 	private String keywords;
 	
-	@Init // ªì©l¤Æ -> ZK ·|¦b¸ü¤J zul ªº¹Lµ{¦Û°Ê²£¥Í§A«ü©wªº ViewModel ª«¥ó¡AµM«á´N©I¥s§A¼Ðµù @Init ªº¤èªk
+	@Init 
     public void init() {
-        //±q«áºÝ§ì¸ê®Æ
         List<Todo> todoList = todoListService.getTodoList();
-        //«ØÄ³¨Ï¥Î ListModelList ¥i¥HÀu¤ÆÃ¸»s®Ä²v¡AÁ×§K¨C¦¸³£­«·sÃ¸»s©Ò¦³¸ê®Æ
         todoListModel = new ListModelList<Todo>(todoList);
     }
 	
-	@Command //@Command ¥Î¨Ó«Å§i¦¹¤èªk¬°©R¥O (command)
-    @NotifyChange("todoListModel") //@NotifyChange ³qª¾ ZK §ó·s­þ¨Ç property
+	@Command  
+    @NotifyChange("todoListModel") 
     public void search(@BindingParam("keywords") String keywords) {
-		//±q«áºÝ§ì¸ê®Æ
         List<Todo> todoList = todoListService.getTodoListBySubject(keywords);
         todoListModel = new ListModelList<Todo>(todoList);
     }
 	
-	@Command //@Command ¥Î¨Ó«Å§i¦¹¤èªk¬°©R¥O (command)
-    @NotifyChange("subject") //@NotifyChange ³qª¾ ZK §ó·s­þ¨Ç property
+	@Command  
+    @NotifyChange("subject")  
     public void addTodo() {
         selectedTodo = todoListService.saveTodo(new Todo(subject));
-        //§ó·s­¶­±¸ê®Æ¡AµL»Ý¥Î @NotifyChange ³qª¾ ZK §Ú­Ì§ïÅÜ¤F todoListModel¡A¥¦¦Û¦æ·|³qª¾¤¸¥óÃ¸»s·s¼Wªº¤@µ§
         todoListModel.add(selectedTodo);
-        //²MªÅ¿é¤J¡A¤è«K¿é¤J¤U¤@­Ó¨Æ¶µ
         subject = "";
     }
 	
 	@Command
     public void deleteTodo(@BindingParam("todo") Todo todo) {
-		/*
-		 * command binding ¤¤¥i¥Hªþ¥[¤@¨ì¦h­Ó°Ñ¼Æ¡A°Ñ¼Æ¤§¶¡¥Î³r¸¹¤À¹j¡A
-		 * ¨C¤@­Ó°Ñ¼Æªº»yªk¬O key=EL-expression¡A key ¬O§A¦Û­qªº¦WºÙ¡A
-		 * µ¥¸¹«á­±¬O EL ªí¹F¦¡¡A¦]¦¹¥i¥H¶Ç¤J¥ô¦ó¥i¥H¥Î EL ¦s¨úªºª«¥ó¡A
-		 * ¦b³o¸Ì each ³o­Ó«O¯d¦r¥Nªí¨C¤@­Ó Listitem Åã¥Üªº Todo¡C
-		 */
-
-		 //§R°£«áºÝ¸ê®Æ
 	     todoListService.deleteTodo(todo);
-	     //§R°£µe­±¤Wªº¸ê®Æ
 	     todoListModel.remove(todo);
     }
 	

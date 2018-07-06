@@ -1,3 +1,4 @@
+<zk>
 <window title="Search Users - MVVM" width="600px" border="normal">
 	
 	<grid apply="org.zkoss.bind.BindComposer"
@@ -17,3 +18,4 @@
 		</template>
 	</grid>
 </window>
+</zk>

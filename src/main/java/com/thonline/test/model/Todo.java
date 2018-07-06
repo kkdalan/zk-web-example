@@ -5,7 +5,7 @@ import java.util.Date;
 public class Todo implements Cloneable {
 
 	private Integer id;
-	private String subject; // ¥DÃD
+	private String subject; 
 	private String description;
 	private Integer priority;
 	private Date date;

@@ -1,39 +1,37 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.7thonline</groupId>
 	<artifactId>zk-web-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<properties>
-		<zk.version>8.5.0</zk.version>
+		<zk.version>8.0.5</zk.version>
+		<zss.version>3.9.2</zss.version>
 		<commons-io>2.4</commons-io>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 	</properties>
+
 	<packaging>war</packaging>
 	<name>The zk-web-example Project</name>
 	<description>The zk-web-example Project</description>
-	<repositories>
-		<repository>
-			<id>ZK CE</id>
-			<name>ZK CE Repository</name>
-			<url>http://mavensync.zkoss.org/maven2</url>
-		</repository>
-		<repository>
-			<id>ZK EVAL</id>
-      		<name>ZK Evaluation Repository</name>
-			<url>http://mavensync.zkoss.org/eval</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>zkmaven</id>
-			<name>ZK Maven Plugin Repository</name>
-			<url>http://mavensync.zkoss.org/maven2/</url>
-		</pluginRepository>
-	</pluginRepositories>
+
+	<!-- <repositories> <repository> <id>ZK CE</id> <name>ZK CE Repository</name> 
+		<url>http://mavensync.zkoss.org/maven2</url> </repository> <repository> <id>ZK 
+		EVAL</id> <name>ZK Evaluation Repository</name> <url>http://mavensync.zkoss.org/eval</url> 
+		</repository> </repositories> <pluginRepositories> <pluginRepository> <id>zkmaven</id> 
+		<name>ZK Maven Plugin Repository</name> <url>http://mavensync.zkoss.org/maven2/</url> 
+		</pluginRepository> </pluginRepositories> -->
+
 	<dependencies>
-	    <!-- ZK -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io}</version>
+		</dependency>
+		<!-- ZK -->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkbind</artifactId>
@@ -54,13 +52,62 @@
 			<artifactId>zhtml</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
-
 		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io}</version>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkmax</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zss</groupId>
+			<artifactId>zssex</artifactId>
+			<version>${zss.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zkex</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zul</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.zkoss.zk</groupId>
+					<artifactId>zk</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.zkoss.common</groupId>
+					<artifactId>zcommon</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zuti</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<!-- ZK Theme -->
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>silvertail</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>sapphire</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>atlantic</artifactId>
+			<version>1.0.5</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>

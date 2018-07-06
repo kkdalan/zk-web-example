@@ -1,3 +1,4 @@
+<zk>
 <window viewModel="@id('vm') @init('com.thonline.test.vm.TodoListViewModel')">
 
 	<caption label="@init(vm.title)" />
@@ -41,3 +42,4 @@
 	</vlayout>
 
 </window>
+</zk>

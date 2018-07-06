@@ -1,8 +1,7 @@
-<window title="Count Test - MVVM" apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('com.thonline.test.vm.CountViewModel')"
-	validationMessages="@id('vmsgs')">
-
-	<button label="add" onClick="@command('cmd')" />
-	Count:
-	<label value="@load(vm.count)" />
+<window title="Count Test - MVVM">
+	<hlayout viewModel="@id('vm') @init('com.thonline.test.vm.CountViewModel')">
+		<button label="add" onClick="@command('cmd')" />
+		Count: 
+		<label value="@load(vm.count)" />
+	</hlayout>
 </window>

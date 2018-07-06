@@ -1,0 +1,14 @@
+<zk>
+	<?component name="field" macroURI="/WEB-INF/macros/fieldbox.zul"?>
+	<window>
+		<vlayout>
+			<field label="Username" text="John" />
+			<field label="Password" text="1234" />
+			<field label="memo" text="test macro component" />
+			<field label="E-mail" text="test.zk@7thonline.com.tw" />
+			<field label="Company" text="7thonline" />
+			<field label="Telephone" text="0912-345-678" />
+			<field label="Country" text="Taiwan" />
+		</vlayout>
+	</window>
+</zk>

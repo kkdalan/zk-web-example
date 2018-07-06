@@ -9,14 +9,10 @@ public class TodoListValidator extends AbstractValidator {
 
 	@Override
 	public void validate(ValidationContext ctx) {
-		// 取得驗證目標值
 		String subject = (String) ctx.getProperty().getValue();
 
 		if (Strings.isBlank(subject)) {
-			Clients.showNotification("必須輸入待辦內容喔！", ctx.getBindContext().getComponent());
-			// 設定驗證結果為不合法，因此：
-			// 使用者輸入不會存入 ViewModel 中
-			// 不會執行相關的 command
+			Clients.showNotification("嚙踝蕭嚙踝蕭嚙踝蕭J嚙豎辦內嚙箴嚙踝蕭I", ctx.getBindContext().getComponent());
 			ctx.setInvalid();
 		}
 	}

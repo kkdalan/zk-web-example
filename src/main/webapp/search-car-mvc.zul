@@ -1,3 +1,4 @@
+<zk>
 <window title="Search Cars - MVC" width="600px" border="normal"
 	apply="com.thonline.test.controller.CarController">
 	
@@ -39,3 +40,4 @@
 		</vbox>
 	</hbox>
 </window>
+</zk>

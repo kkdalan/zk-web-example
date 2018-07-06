@@ -1,3 +1,4 @@
+<zk>
 <window title="Search Cars - MVVM" width="600px" border="normal" 
 	viewModel="@id('vm') @init('com.thonline.test.vm.CarViewModel')">
 	
@@ -40,3 +41,4 @@
 		</vbox>
 	</hbox>
 </window>
+</zk>

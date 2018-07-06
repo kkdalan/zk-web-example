@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
 <zk>
-	<!-- [Optional]
-	Uncomment if you want to defines the application's name 
-	
-	<preference>
-		<name>org.zkoss.zk.ui.WebApp.name</name>
-		<value>zk-web-example</value>
-	</preference>
-	-->
-	
+	<!-- [Optional] Uncomment if you want to defines the application's name 
+		<preference> <name>org.zkoss.zk.ui.WebApp.name</name> <value>zk-web-example</value> 
+		</preference> -->
+
 	<!-- Richlets mapping -->
 	<richlet>
-	    <richlet-name>TestRichlet</richlet-name><!-- your preferred name -->
-	    <richlet-class>com.thonline.test.richlet.RichletPropertyRetrieval</richlet-class><!-- your class name, of course -->
+		<richlet-name>TestRichlet</richlet-name><!-- your preferred name -->
+		<richlet-class>com.thonline.test.richlet.RichletPropertyRetrieval</richlet-class><!-- 
+			your class name, of course -->
 	</richlet>
 	<richlet-mapping>
-	    <richlet-name>TestRichlet</richlet-name>
-	    <url-pattern>/test-richlet</url-pattern>
+		<richlet-name>TestRichlet</richlet-name>
+		<url-pattern>/test-richlet</url-pattern>
 	</richlet-mapping>
-	
+
+	<!-- Preferred ZK theme -->
+	<library-property>
+		<name>org.zkoss.theme.preferred</name>
+		<value>silvertail</value> <!-- or silvertail, atlantic, deepsea, gardensalad etc. -->
+	</library-property>
+
 </zk>

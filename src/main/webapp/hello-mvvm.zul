@@ -1,3 +1,4 @@
+<zk>
 <window title="Hello - MVVM" width="600px" border="normal">
 	<div
 		viewModel="@id('vm') @init('com.thonline.test.vm.HelloViewModel')">
@@ -6,3 +7,4 @@
 		<label value="@load(vm.hello)" />
 	</div>
 </window>
+</zk>
